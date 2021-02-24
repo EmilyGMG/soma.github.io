@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Divisao</title>
+
+  <style>
+    body {
+      background-color: black;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .container {
+      margin-top: 2em;
+    }
+
+    #resultado {
+      display: flex;
+      justify-content: center;
+      color: white;
+    }
+
+    .d-grid {
+      margin-top: 6em;
+      margin: 0 auto;
+      display: grid;
+      justify-content: center;
+    }
+
+    #campo1,
+    #campo2,
+    #resultado {
+      width: 100%;
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row d-grid">
+      <div class="col-lg-12 col-md-8 col-sm-12 d-flex-c mb-4">
+        <input id="campo1" type="number" />
+        <br /> <br />
+        <input id="campo2" type="number" />
+
+      </div>
+      <div class="col-lg-12 col-md-8 col-sm-12 d-flex-c mb-4">
+        <span id="resultado"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var campo1 = document.getElementById("campo1");
+    var campo2 = document.getElementById("campo2");
+    var resultado = document.getElementById("resultado");
+    var somenteNumeros = new RegExp("[^0-9]", "g");
+
+    var toNumber = function (value) {
+      var number = value.replace(somenteNumeros, "");
+      number = parseInt(number);
+      if (isNaN(number))
+        number = 0;
+      return number;
+    }
+
+    var somenteNumeros = function (event) {
+      event.target.value = toNumber(event.target.value);
+    }
+
+    var onInput = function (event) {
+      var num1 = toNumber(campo1.value);
+      var num2 = toNumber(campo2.value);
+
+      if (num1 / num2) {
+        resultado.textContent = Math.round((num1 / num2) * 1000);
+      }
+
+    }
+
+    campo1.addEventListener("input", somenteNumeros);
+    campo2.addEventListener("input", somenteNumeros);
+
+    campo1.addEventListener("input", onInput);
+    campo2.addEventListener("input", onInput);
+
+    onInput();
+  </script>
+</body>
+
+</html>

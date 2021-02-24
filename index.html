@@ -5,29 +5,39 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet"> 
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
    <title>Calculo</title>
    <style>
       body {
-        background-color: black;
+         background-color: black;
+         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       }
+
       .mt-6 {
          margin-top: 6em;
       }
+
       .mt-4 {
          margin-top: 4em;
       }
+
       .d-flex-c {
          display: flex;
          justify-content: center;
       }
+
       .f-b {
          font-size: 72px;
          color: rgba(251, 255, 0, 0.904);
       }
+
+      .mt-10 {
+         margin-top: 10em;
+      }
+
       .input-1 {
          box-shadow: 5px 4px 6px 2px rgb(255, 200, 0);
          -webkit-box-shadow: 5px 4px 6px 2px rgba(255, 200, 2, 0.78);
@@ -36,137 +46,147 @@
          width: 90%;
          margin-left: 5%;
       }
+
+      .kg,
+      .g {
+         width: 45%;
+      }
+
+      a {
+         text-decoration: none;
+         cursor: pointer;
+         text-transform: uppercase;
+         color: white;
+      }
+
+      .divisao {
+         display: flex;
+         justify-content: center;
+         margin-top: 6em;
+      }
    </style>
 </head>
 
 <body>
    <div class="containier mt-6">
-      <div class="row">
-         <div class="col-lg-4 col-md-2 col-sm-2">
-            <input id="campo1" type="number" class="input-1"/>
+      <div class="row d-flex-c">
+         <div class="col-lg-4 col-md-8 col-sm-12 ">
+            <input id="campo1" class="input-1" />
          </div>
       </div>
-         <div class="row">
+      <div class="row">
          <div class="col-lg-12 col-md-12 d-flex-c">
             <span id="resultado" class="mt-4 f-b"></span>
          </div>
       </div>
+      <a href="./divisao.html" class="divisao">Dividir</a>
 
-   </div>
 
-<script>
+      <script>
+         var campo1 = document.getElementById("campo1");
+         var resultado = document.getElementById("resultado");
+         var somenteNumeros = new RegExp("[^0-9]", "g");
 
-   </script>
-
-   <script>
-      var campo1 = document.getElementById("campo1");
-      var operador = document.getElementById("operador");
-      var resultado = document.getElementById("resultado");
-      var somenteNumeros = new RegExp("[^0-9]", "g");
-
-      var toNumber = function (value) {
-         var number = value.replace(somenteNumeros, "");
-         number = parseInt(number);
-         if (isNaN(number))
-            number = 0;
-         return number;
-      }
-
-      var somenteNumeros = function (event) {
-         event.target.value = toNumber(event.target.value);
-      }
-
-      var onInput = function (event) {
-         var num1 = toNumber(campo1.value);
-         if (num1 < 8) {
-            resultado.textContent = num1 + 3;
-         }
-         if (num1 == 8) {
-            resultado.textContent = num1 + 3;
-         }
-         if (num1 > 9) {
-            resultado.textContent = num1 + 5;
-         }
-         if (num1 == 9 && 15) {
-            resultado.textContent = num1 + 5;
+         var toNumber = function (value) {
+            var number = value.replace(somenteNumeros, "");
+            number = parseInt(number);
+            if (isNaN(number))
+               number = 0;
+            return number;
          }
 
-         if (num1 > 16) {
-            resultado.textContent = num1 + 8;
+         //Tira o NaN
+         var somenteNumeros = function (event) {
+            event.target.value = toNumber(event.target.value);
          }
 
-         if (num1 == 16 && 30) {
-            resultado.textContent = num1 + 8;
+         var onInput = function (event) {
+            var num1 = toNumber(campo1.value);
+            if (num1 < 8) {
+               resultado.textContent = num1 + 3;
+            }
+            if (num1 == 8) {
+               resultado.textContent = num1 + 3;
+            }
+            if (num1 > 9) {
+               resultado.textContent = num1 + 5;
+            }
+            if (num1 == 9 && 15) {
+               resultado.textContent = num1 + 5;
+            }
+
+            if (num1 > 16) {
+               resultado.textContent = num1 + 8;
+            }
+
+            if (num1 == 16 && 30) {
+               resultado.textContent = num1 + 8;
+            }
+
+            if (num1 > 31) {
+               resultado.textContent = num1 + 10;
+            }
+
+            if (num1 == 31 && 50) {
+               resultado.textContent = num1 + 10;
+            }
+
+            if (num1 > 51) {
+               resultado.textContent = num1 + 15;
+            }
+
+            if (num1 == 51 && 80) {
+               resultado.textContent = num1 + 15;
+            }
+
+            if (num1 > 81) {
+               resultado.textContent = num1 + 20;
+            }
+
+            if (num1 == 81 && 100) {
+               resultado.textContent = num1 + 20;
+            }
+
+            if (num1 > 101) {
+               resultado.textContent = num1 + 30;
+            }
+
+            if (num1 == 101 && 200) {
+               resultado.textContent = num1 + 30;
+            }
+            //PORCENTAGEM % 
+
+            if (num1 >= 201) {
+               resultado.textContent = (Math.round(num1 / 100) * 5) + num1
+            }
+
+            if (num1 == 201 && 500) {
+               resultado.textContent = (Math.round(num1 / 100) * 5) + num1
+            }
+
+            if (num1 >= 501) {
+               resultado.textContent = (Math.round(num1 / 100) * 3) + num1
+            }
+
+            if (num1 == 501) {
+               resultado.textContent = (Math.round(num1 / 100) * 3) + num1
+            }
+
+            if (num1 >= 5001) {
+               resultado.textContent = (Math.round(num1 / 100) * 1) + num1
+            }
+
+            if (num1 == 5001) {
+               resultado.textContent = (Math.round(num1 / 100) * 1) + num1
+            }
          }
 
-         if (num1 > 31) {
-            resultado.textContent = num1 + 10;
-         }
+         campo1.addEventListener("input", somenteNumeros);
 
-         if (num1 == 31 && 50) {
-            resultado.textContent = num1 + 10;
-         }
+         campo1.addEventListener("input", onInput);
 
-         if (num1 > 51) {
-            resultado.textContent = num1 + 15;
-         }
-
-         if (num1 == 51 && 80) {
-            resultado.textContent = num1 + 15;
-         }
-
-         if (num1 > 81) {
-            resultado.textContent = num1 + 20;
-         }
-
-         if (num1 == 81 && 100) {
-            resultado.textContent = num1 + 20;
-         }
-
-         if (num1 > 101) {
-            resultado.textContent = num1 + 30;
-         }
-
-         if (num1 == 101 && 200) {
-            resultado.textContent = num1 + 30;
-         }
-         //PORCENTAGEM % 
-
-         if (num1 >= 201) {
-            resultado.textContent = (Math.round(num1 / 100) * 5) + num1
-         }
-
-         if (num1 == 201 && 500) {
-            resultado.textContent = (Math.round(num1 / 100) * 5) + num1
-         }
-
-         if (num1 >= 501) {
-            resultado.textContent = (Math.round(num1 / 100) * 3) + num1
-         }
-
-         if (num1 == 501) {
-            resultado.textContent = (Math.round(num1 / 100) * 3) + num1
-         }
-
-         if (num1 >= 5001) {
-            resultado.textContent = (Math.round(num1 / 100) * 1) + num1
-         }
-
-         if (num1 == 5001) {
-            resultado.textContent = (Math.round(num1 / 100) * 1) + num1
-         }
-      }
-
-      campo1.addEventListener("input", somenteNumeros);
-
-      campo1.addEventListener("input", onInput);
-      campo2.addEventListener("input", onInput);
-      operador.addEventListener("input", onInput);
-
-      onInput();
-   </script>
-
-
+         onInput();
+      </script>
 
 </body>
 
