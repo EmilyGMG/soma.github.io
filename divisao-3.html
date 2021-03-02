@@ -16,7 +16,7 @@
     body {
       background-color: black;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      
+
     }
 
     .container {
@@ -43,6 +43,16 @@
       font-size: 50px;
     }
 
+    #campo3 {
+      display: flex;
+      width: 30%;
+      font-size: 35px;
+      margin: 0 auto;
+    }
+
+    .input-camp {
+      display: flex;
+    }
     .topnav {
       overflow: hidden;
       background-color: #333;
@@ -117,10 +127,12 @@
   <div class="container">
     <div class="row d-grid">
       <div class="col-lg-12 col-md-8 col-sm-12 d-flex-c mb-4">
-        <input id="campo1" type="number" />
-        <br /> <br />
-        <input id="campo2" type="number" />
-        <br /> <br />
+        <div class="input-camp">
+          <input id="campo1" type="number" />
+          <br /> <br />
+          <input id="campo2" type="number" />
+        </div>
+        <br />
         <input id="campo3" type="number" />
 
       </div>
@@ -155,7 +167,7 @@
       var num3 = toNumber(campo3.value);
 
       if (num1 / num2) {
-        resultado.textContent = Math.round(((num1 / num2)* num3) * 1000) ;
+        resultado.textContent = Math.round(((num1 / num2) * num3) * 1000);
       }
 
     }
